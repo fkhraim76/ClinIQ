@@ -1,0 +1,32 @@
+{
+  "enabled": false,
+  "mode_visibility": {
+    "Practice": true,
+    "Exam": true
+  },
+  "items_per_case": 30,
+  "per_case_items": {},
+  "optional_practical_section": true,
+  "show_correct_answers_after_submit": true,
+  "show_rationales_after_submit": true,
+  "shuffle_options": true,
+  "separate_grade": {
+    "enabled": true,
+    "max_points_per_case": 30,
+    "weight_vs_reasoning_case_score": 0.5
+  },
+  "client_need_blueprint": {
+    "Physiological Integrity": 0.35,
+    "Safe and Effective Care Environment": 0.25,
+    "Health Promotion and Maintenance": 0.2,
+    "Psychosocial Integrity": 0.2
+  },
+  "enabled_types": {
+    "mcq": true,
+    "sata": true,
+    "ordered_response": true,
+    "cloze": true,
+    "matrix": true,
+    "evolving_case": true
+  }
+}

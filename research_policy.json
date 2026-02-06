@@ -1,0 +1,10 @@
+{
+  "enabled": false,
+  "require_consent": true,
+  "anonymize_student_id": true,
+  "collect_reflection": false,
+  "collect_answer_change": true,
+  "collect_section_performance": true,
+  "consent_title": "Research Consent",
+  "consent_text": "This activity may be used for educational research. Participation is voluntary. Your responses will be anonymized for analysis when possible. By checking the box below, you consent to your data being used for research purposes."
+}

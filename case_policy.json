@@ -1,0 +1,6 @@
+{
+  "default_visibility": true,
+  "default_timer_minutes_practice": "unlimited",
+  "default_timer_minutes_exam": 20,
+  "per_case": {}
+}
