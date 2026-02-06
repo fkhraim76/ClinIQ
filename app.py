@@ -9237,7 +9237,7 @@ with st.expander("🗂 Case Selection", expanded=True):
             inprog_count += 1
             in_progress_opts.append((cid0, hint0, _display_label(c)))
 
-    with st.expander("📌 My Progress", expanded=False):
+    with st.expander("📌 My Progress"):
         st.caption(f"Completed: **{completed_count}**  •  In progress: **{inprog_count}**")
         if in_progress_opts:
             labels = [lab for (_cid,_hint,lab) in in_progress_opts]
