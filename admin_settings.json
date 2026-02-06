@@ -1,0 +1,7 @@
+{
+  "app_mode": "Practice",
+  "ai_enabled": false,
+  "ai_debrief_enabled": false,
+  "ai_model": "gpt-5.2",
+  "research_mode": false
+}
