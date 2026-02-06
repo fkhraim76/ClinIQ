@@ -9296,7 +9296,6 @@ with st.expander("🗂 Case Selection", expanded=True):
 
     with st.container():
     st.subheader("📌 My Progress")
-    ...
         st.caption(f"Completed: **{completed_count}**  •  In progress: **{inprog_count}**")
         if in_progress_opts:
             labels = [lab for (_cid,_hint,lab) in in_progress_opts]
