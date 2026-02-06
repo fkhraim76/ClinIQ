@@ -9280,29 +9280,37 @@ with st.expander("🗂 Case Selection", expanded=True):
         return f"{title} — [{cid}]{hidden_badge}"
 
     # Progress UI (students + admins) based on autosave drafts
-    # Note: uses only autosave data; does NOT reveal correct answers.
-    in_progress_opts = []
-    completed_count = 0
-    inprog_count = 0
-    for c in visible_filtered_cases:
-        cid0 = str(c.get("id","")).strip()
-        d0 = autosave_index.get(cid0)
-        status0, hint0 = compute_resume_hint_from_draft(d0 or {})
-        if status0 == "Completed":
-            completed_count += 1
-        elif status0 in ["In progress", "Submitted"]:
-            inprog_count += 1
-           in_progress_opts.append((cid0, hint0, _display_label(c)))
+# Note: uses only autosave data; does NOT reveal correct answers.
 
-    with st.expander("📌 My Progress", expanded=False):
-        st.caption(f"Completed: **{completed_count}**  •  In progress: **{inprog_count}**")
-        if in_progress_opts:
-            labels = [lab for (_cid,_hint,lab) in in_progress_opts]
-            pick_lab = st.selectbox("Continue an unfinished case", labels, key="progress_continue_pick")
-            if st.button("▶ Continue", key="progress_continue_btn"):
-                # Request resume: switch the selected case and restore last autosave on next run
-                sel_i = labels.index(pick_lab)
-                sel_cid, sel_hint, sel_label = in_progress_opts[sel_i]
+in_progress_opts = []
+completed_count = 0
+inprog_count = 0
+
+for c in visible_filtered_cases:
+    cid0 = str(c.get("id", "")).strip()
+    d0 = autosave_index.get(cid0)
+    status0, hint0 = compute_resume_hint_from_draft(d0 or {})
+
+    if status0 == "Completed":
+        completed_count += 1
+    elif status0 in ["In progress", "Submitted"]:
+        inprog_count += 1
+        in_progress_opts.append((cid0, hint0, _display_label(c)))
+
+st.subheader("📌 My Progress")
+st.caption(f"Completed: **{completed_count}**  •  In progress: **{inprog_count}**")
+
+if in_progress_opts:
+    labels = [lab for (_cid, _hint, lab) in in_progress_opts]
+    pick_lab = st.selectbox(
+        "Continue an unfinished case",
+        labels,
+        key="progress_continue_pick"
+    )
+
+    if st.button("▶ Continue", key="progress_continue_btn"):
+        sel_i = labels.index(pick_lab)
+        sel_cid, sel_hint, sel_label = in_progress_opts[sel_i]
                 st.session_state["_resume_case_id"] = sel_cid
                 st.session_state["_resume_hint"] = sel_hint
                 st.session_state["case_pick_main"] = sel_label
