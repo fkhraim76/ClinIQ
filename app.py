@@ -9292,10 +9292,9 @@ with st.expander("🗂 Case Selection", expanded=True):
             completed_count += 1
         elif status0 in ["In progress", "Submitted"]:
             inprog_count += 1
-            in_progress_opts.append((cid0, hint0, _display_label(c)))
+           in_progress_opts.append((cid0, hint0, _display_label(c)))
 
-    with st.container():
-    st.subheader("📌 My Progress")
+    with st.expander("📌 My Progress", expanded=False):
         st.caption(f"Completed: **{completed_count}**  •  In progress: **{inprog_count}**")
         if in_progress_opts:
             labels = [lab for (_cid,_hint,lab) in in_progress_opts]
